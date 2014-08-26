@@ -1,0 +1,18 @@
+body {
+    padding-top: 57px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+.header-right {
+    position:absolute;
+    right:0;
+    top:0;
+}
+    .header-right .glyphicon {
+        font-size:1.3em;
+    }
+
+.modal-content {
+    padding:0 10px;
+}
