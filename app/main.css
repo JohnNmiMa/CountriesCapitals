@@ -16,3 +16,6 @@ body {
 .modal-content {
     padding:0 10px;
 }
+    .modal-content li p {
+        margin:0;
+    }
