@@ -1,6 +1,3 @@
-
-*.js
-
 *.js~
 
 *.html~
@@ -10,3 +7,5 @@
 *.swp
 
 *.md~
+
+.gitignore~

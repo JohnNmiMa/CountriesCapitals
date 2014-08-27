@@ -7,7 +7,7 @@ The application makes use of the handy Geonames.org API.
 
 ## Installation
 
-1. Clone from https://github.com/thinkful/angular-weather-app.git
+1. Clone from https://github.com/jettagozoom/CountriesCapitals.git
 
 2. Then `cd` into the project directory and run `npm install`
 
