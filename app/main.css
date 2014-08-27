@@ -4,6 +4,12 @@ body {
     overflow-y:hidden;
 }
 
+.cncBrand.navbar-brand {
+    color: #21c300;
+}
+    .cncBrand.navbar-brand:hover {
+        color: #ff9500;
+    }
 .header-right {
     position:absolute;
     right:0;
@@ -11,11 +17,135 @@ body {
 }
     .header-right .glyphicon {
         font-size:1.3em;
+        color: #21c300;
     }
+        .header-right .glyphicon:hover {
+            color: #ff9500;
+        }
 
 .modal-content {
     padding:0 10px;
+    /*color: #21c300;*/
 }
-    .modal-content li p {
-        margin:0;
+    .modal-content ul {
+        list-style-type:disc;
+        list-style-position:outside;
+        padding:0 18px;
     }
+        .modal-content h3 {
+            margin:10px 0 5px 0;
+            color: #ff9500;
+        }
+        .modal-content li p {
+            margin:0;
+            color: #21c300;
+        }
+        .modal-content li a {
+            color: #21c300;
+        }
+
+.sidebar {
+    position:absolute;
+    top:51px;
+    bottom:0;
+    left:0;
+    right:33.3333333333%;
+    padding:5px 0;
+    /*background-color:#eee;*/
+    overflow-x:hidden;
+    overflow-y: scroll;
+}
+    .sidebar li {
+        float:left;
+        list-style: none;
+        padding-left:5px;
+    }
+        .sidebar li a {
+            min-width:100px;
+            font-size:0.8em;
+        }
+            .sidebar li a.btn {
+                padding:1px 2px;
+            }
+            .sidebar li a.btn-default {
+                background-color: #21c300;
+                color:#fff;
+            }
+            .sidebar li a.btn-default:hover {
+                background-color: #ff9500;
+            }
+    .sidebar::-webkit-scrollbar {
+        background-color:#fff;
+        width:10px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+        background-color: #ff9500;
+        -webkit-border-radius: 1ex;
+        -webkit-box-shadow:none;
+    }
+
+.homeContent {
+}
+    .homeContent h3 {
+        color: #21c300;
+    }
+    .homeContent p {
+        color: #ff9500;
+    }
+    .homeContent .btn-primary {
+        background-color: #21c300;
+        border:none;
+    }
+
+.countriesContent {
+    position:absolute;
+    top:51px;
+    bottom:0;
+    left:33.3333333333%;
+    right:0;
+    padding:5px 0;
+    padding-right:5px;
+    /*background-color:#eee;*/
+    overflow-x:hidden;
+    overflow-y: hidden;
+    color: #21c300;
+}
+    .countryInfo h3 {
+        color: #ff9500;
+    }
+    table {
+    }
+        td {
+            font-size:.90em;
+            padding:5px 3px;
+            min-width:150px;
+        }
+        td.textcol {
+            text-align:right;
+        }
+
+    .infograph {
+        /*border:1px solid black;*/
+    }
+        .infograph .popCol  {
+            padding-right: 0;
+        }
+        .infograph .areaCol  {
+            padding-left: 0;
+        }
+        .infograph .populationContainer,
+        .infograph .areaContainer {
+            position:relative;
+        }
+            .infograph h4 {
+               text-align:center;
+            }
+            .infograph .population, .infograph .area {
+                position:absolute;
+            }
+            .infograph .population {
+                background-color: #21c300;
+            }
+            .infograph .area {
+                background-color: #ff9500;
+            }

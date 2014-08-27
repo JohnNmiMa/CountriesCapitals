@@ -2,6 +2,7 @@
 <html lang='en' ng-app="cncApp">
 <head>
     <!-- build:css ./_assets/combined.css -->
+    <link rel="stylesheet" type="text/css" href="./reset.css" />
     <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="./main.css" />
     <!-- endbuild -->
@@ -12,7 +13,7 @@
 <body ng-controller="CncCtrl">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#!">Countries & Capitals</a>
+            <a class="cncBrand navbar-brand" href="#!">Countries & Capitals</a>
         </div>
         <a class="header-right navbar-brand" href="javascript:void(0)" ng-click="displayInfo()">
             <span class="glyphicon glyphicon-info-sign"></span></a>
@@ -41,8 +42,10 @@
     <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="./cncLibrary.js"></script>
     <script type="text/javascript" src="./cncAppViews.js"></script>
     <script type="text/javascript" src="./home/home.js"></script>
+    <script type="text/javascript" src="./countries/countries.js"></script>
     <script type="text/javascript" src="./cncApp.js"></script>
     <!-- endbuild -->
 </body>
