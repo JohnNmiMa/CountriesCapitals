@@ -1,42 +1,44 @@
 <div class="row">
-    <div class="col-xs-4"></div>
-    <div class="countryInfo col-xs-4">
-        <h3 class="country">{{country}}</h3>
-        <center>
-            <table>
-                <tr>
-                    <td class="textcol">Country Code:</td>
-                    <td class="capital">{{countrycode}}</td>
-                </tr>
-                <tr>
-                    <td class="textcol">Capital:</td>
-                    <td class="capital">{{capital}}</td>
-                </tr>
-                <tr>
-                    <td class="textcol">Population of Country:</td>
-                    <td class="population">{{population | number:0}}</td>
-                </tr>
-                <tr>
-                    <td class="textcol">Area (Sq Mi):</td>
-                    <td class="population">{{area | number:0}}</td>
-                </tr>
-                <tr>
-                    <td class="textcol">Continent Code:</td>
-                    <td class="capital">{{continentcode}}</td>
-                </tr>
-            </table>
-        <center>
+    <!--<div class="col-xs-4"></div>-->
+    <div class="countryContent col-xs-12">
+        <div class="countryInfo">
+            <h3 class="country">{{country}}</h3>
+            <div>
+                <table class="center">
+                    <tr>
+                        <td class="labelcol">Country Code:</td>
+                        <td class="valuecol capital">{{countrycode}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Capital:</td>
+                        <td class="valuecol capital">{{capital}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Population of Country:</td>
+                        <td class="valuecol population">{{population | number:0}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Area (Sq Mi):</td>
+                        <td class="valuecol population">{{area | number:0}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Continent Code:</td>
+                        <td class="valuecol capital">{{continentcode}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <div class="row">
             <div class="map col-xs-6"></div>
             <div class="flag col-xs-6"></div>
         </div>
-        <center class="row">
+        <div class="row">
             <div class="col-xs-12">
                 <a href="#!/countries"
-                    <button type="button" class="btn btn-primary">Browse Countries</button>
+                    <button type="button" class="browse btn btn-primary">Browse Countries</button>
                 </a>
             </div>
-        </center>
+        </div>
     </div>
-    <div class="col-xs-4"></div>
+    <!--<div class="col-xs-4"></div>-->
 </div>

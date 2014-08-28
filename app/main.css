@@ -113,19 +113,27 @@ body {
     overflow-y: hidden;
     color: #21c300;
 }
-    .countryInfo h3 {
-        color: #ff9500;
+    .countryInfo {
+        text-align:center;
     }
-    table {
-    }
-        td {
-            font-size:.90em;
-            padding:5px 3px;
-            min-width:150px;
+        .countryInfo h3 {
+            color: #ff9500;
         }
-        td.textcol {
-            text-align:right;
+        table.center {
+            margin-left:auto; 
+            margin-right:auto;
         }
+            td {
+                font-size:.90em;
+                padding:5px 3px;
+                min-width:150px;
+            }
+            td.labelcol {
+                text-align:right;
+            }
+            td.valuecol {
+                text-align:left;
+            }
 
     .infograph {
         padding:20px 0;
@@ -155,6 +163,18 @@ body {
                 background-color: #ff9500;
             }
 
-.countryInfo .country {
-    margin-left:65px;
+.countryContent {
+    color: #21c300;
+    text-align:center;
 }
+    .countryContent .countryInfo {
+        display:inline-block;
+    }
+
+    .countryContent .countryInfo h3 {
+        text-align:left;
+        color: #ff9500;
+    }
+    .countryContent .countryInfo td {
+        min-width:0;
+    }
