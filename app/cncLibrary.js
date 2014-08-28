@@ -6,18 +6,17 @@ angular.module('cncLibrary', [])
                   function($http,   $q,   GEOLOCATIONS_API_PREFIX) {
     var countryInfo = [];
     return function() {
+        var defer = $q.defer();
         if (countryInfo.length == 0) {
-            var defer = $q.defer();
             $http.get(GEOLOCATIONS_API_PREFIX)
             .success(function(data) {
                 countryInfo = removeDups(data.geonames);
                 defer.resolve(countryInfo);
             })
-            return defer.promise;
         } else {
-            //defer.resolve(countryInfo);
-            return countryInfo;
+            defer.resolve(countryInfo);
         }
+        return defer.promise;
     }
 
     function removeDups(countries) {
@@ -48,6 +47,22 @@ angular.module('cncLibrary', [])
             }
         }
         return tmpArray;
+    }
+}])
+
+.factory('cncCountry', ['cncCountries', '$q',
+                function(cncCountries,   $q) {
+    return function(countryCode) {
+        var defer = $q.defer();
+        cncCountries()
+        .then(function(countries) {
+            for (index in countries) {
+                if (countryCode === countries[index].countryCode) {
+                    defer.resolve(countries[index]);
+                }
+            }
+        })
+        return defer.promise;
     }
 }]);
 

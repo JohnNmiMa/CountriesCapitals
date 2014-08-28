@@ -92,10 +92,15 @@ body {
     .homeContent p {
         color: #ff9500;
     }
-    .homeContent .btn-primary {
+    /*.homeContent .btn-primary {*/
+    .btn-primary {
         background-color: #21c300;
         border:none;
     }
+        .btn-primary:hover {
+            background-color: #ff9500;
+            border:none;
+        }
 
 .countriesContent {
     position:absolute;
@@ -149,3 +154,7 @@ body {
             .infograph .area {
                 background-color: #ff9500;
             }
+
+.countryInfo .country {
+    margin-left:65px;
+}
