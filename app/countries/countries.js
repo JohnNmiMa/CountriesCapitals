@@ -32,6 +32,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries',
             usIndex = index;
         }
     }
+    $scope.maxArea = $scope.maxArea * 0.386102; // Convert to Sq Mi
 
     $scope.displayCountry = function(index) {
         setCountry(index);
@@ -46,6 +47,8 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries',
         $scope.population = Number(countries[index].population);
         $scope.area = Number(countries[index].areaInSqKm) * 0.386102;
         $scope.capital = countries[index].capital;
+        $scope.countrycode = countries[index].countryCode;
+        $scope.continentcode = countries[index].continent;
     }
 
     $scope.computeLayout = function(size, maxSize) {
