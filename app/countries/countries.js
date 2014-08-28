@@ -44,7 +44,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries',
 
         $scope.country = countries[index].countryName;
         $scope.population = Number(countries[index].population);
-        $scope.area = Number(countries[index].areaInSqKm);
+        $scope.area = Number(countries[index].areaInSqKm) * 0.386102;
         $scope.capital = countries[index].capital;
     }
 
