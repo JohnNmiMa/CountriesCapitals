@@ -1,14 +1,16 @@
 angular.module('cncLibrary', [])
 
-.constant('GEOLOCATIONS_API_PREFIX', 'http://api.geonames.org/countryInfoJSON?username=jettagozoom')
+.constant('GEONAMES_API_PREFIX', 'http://api.geonames.org')
 
-.factory('cncCountries', ['$http', '$q', 'GEOLOCATIONS_API_PREFIX',
-                  function($http,   $q,   GEOLOCATIONS_API_PREFIX) {
+.factory('cncCountries', ['$http', '$q', 'GEONAMES_API_PREFIX',
+                  function($http,   $q,   GEONAMES_API_PREFIX) {
     var countryInfo = [];
     return function() {
-        var defer = $q.defer();
+        var defer = $q.defer(),
+            path = "/countryInfoJSON?username=jettagozoom";
+
         if (countryInfo.length == 0) {
-            $http.get(GEOLOCATIONS_API_PREFIX)
+            $http.get(GEONAMES_API_PREFIX + path)
             .success(function(data) {
                 countryInfo = removeDups(data.geonames);
                 defer.resolve(countryInfo);
@@ -16,6 +18,7 @@ angular.module('cncLibrary', [])
         } else {
             defer.resolve(countryInfo);
         }
+
         return defer.promise;
     }
 
@@ -62,6 +65,26 @@ angular.module('cncLibrary', [])
                 }
             }
         })
+        return defer.promise;
+    }
+}])
+
+.factory('cncCapital', ['$http', '$q', 'GEONAMES_API_PREFIX',
+                function($http,   $q,   GEONAMES_API_PREFIX) {
+    return function(country) {
+        var defer = $q.defer(),
+            path = "/searchJSON?" +
+                   "q=" + country.capital +
+                   "&featureCode=PPLC" +
+                   "&country=" + country.countryCode + 
+                   "&maxRows=2" +
+                   "&username=jettagozoom";
+
+        $http.get(GEONAMES_API_PREFIX + path)
+        .success(function(data) {
+            defer.resolve(data.geonames[0]);
+        })
+
         return defer.promise;
     }
 }]);

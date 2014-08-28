@@ -11,13 +11,16 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-viewsModule.controller('CountryCtrl', ['$scope', 'country',
-                               function($scope,   country) {
-
+viewsModule.controller('CountryCtrl', ['$scope', 'country', 'cncCapital',
+                               function($scope,   country,   cncCapital) {
+    //var countryCapital = {};
     $scope.country = country.countryName;
     $scope.population = Number(country.population);
     $scope.area = Number(country.areaInSqKm) * 0.386102;
     $scope.capital = country.capital;
     $scope.countrycode = country.countryCode;
     $scope.continentcode = country.continent;
+    cncCapital(country).then(function(capital) {
+        $scope.capitalPopulation = capital.population;
+    });
 }]);
