@@ -7,7 +7,7 @@
                 <table class="center">
                     <tr>
                         <td class="labelcol">Country Code:</td>
-                        <td class="valuecol capital">{{countrycode}}</td>
+                        <td class="valuecol countryCode">{{countrycode}}</td>
                     </tr>
                     <tr>
                         <td class="labelcol">Population of Country:</td>
@@ -19,15 +19,23 @@
                     </tr>
                     <tr>
                         <td class="labelcol">Population of Capital:</td>
-                        <td class="valuecol capital">{{capitalPopulation | number:0}}</td>
+                        <td class="valuecol capitalPop">{{capitalPopulation | number:0}}</td>
                     </tr>
                     <tr>
                         <td class="labelcol">Area (Sq Mi):</td>
-                        <td class="valuecol population">{{area | number:0}}</td>
+                        <td class="valuecol area">{{area | number:0}}</td>
                     </tr>
                     <tr>
-                        <td class="labelcol">Continent Code:</td>
-                        <td class="valuecol capital">{{continentcode}}</td>
+                        <td class="labelcol">Continent:</td>
+                        <td class="valuecol continent">{{continent}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">{{numNeighbors}} Neighbors:</td>
+                        <td class="valuecol neighbors">
+                            <a ng-repeat="neighbor in neighbors" ng-href="#!/countries/{{neighbor.countryCode}}">
+                                {{neighbor.countryName}}
+                            </a>
+                        </td>
                     </tr>
                 </table>
             </div>

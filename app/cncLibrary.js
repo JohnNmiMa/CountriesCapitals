@@ -87,5 +87,21 @@ angular.module('cncLibrary', [])
 
         return defer.promise;
     }
-}]);
+}])
 
+.factory('cncCountryNeighbors', ['$http', '$q', 'GEONAMES_API_PREFIX',
+                function($http,   $q,   GEONAMES_API_PREFIX) {
+    return function(geonameId) {
+        var defer = $q.defer(),
+            path = "/neighboursJSON" +
+                   "?geonameId=" + geonameId +
+                   "&username=jettagozoom";
+
+        $http.get(GEONAMES_API_PREFIX + path)
+        .success(function(data) {
+            defer.resolve(data.geonames);
+        })
+
+        return defer.promise;
+    }
+}]);
