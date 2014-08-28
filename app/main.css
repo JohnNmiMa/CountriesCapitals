@@ -103,9 +103,7 @@ body {
     bottom:0;
     left:33.3333333333%;
     right:0;
-    padding:5px 0;
-    padding-right:5px;
-    /*background-color:#eee;*/
+    padding:0;
     overflow-x:hidden;
     overflow-y: hidden;
     color: #21c300;
@@ -125,6 +123,8 @@ body {
         }
 
     .infograph {
+        padding:20px 0;
+        margin:0;
         /*border:1px solid black;*/
     }
         .infograph .popCol  {

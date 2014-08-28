@@ -1,8 +1,8 @@
 <div class="row">
     <div class="sidebar col-xs-4">
         <ul>
-            <li ng-repeat="name in countryNames" ng-mouseenter="displayCountry($index)">
-                <a href="javascript:void(0)" class="btn btn-default">{{name}}</a>
+            <li ng-repeat="name in countries" ng-mouseenter="displayCountry($index)">
+                <a href="javascript:void(0)" class="btn btn-default">{{name.countryName}}</a>
             </li>
         </ul>
     </div>
@@ -10,23 +10,10 @@
         <center class="countryInfo">
             <h3>{{country}}</h3>
             <table>
-                <!--<tr>-->
-                    <!--<td class="textcol">Population of Country:</td>-->
-                    <!--<td class="population">{{population | number:0}}</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td class="textcol">Area (square km):</td>-->
-                    <!--<td class="area">{{area | number:0}}</td>-->
-                <!--</tr>-->
                 <tr>
                     <td class="textcol">Capital:</td>
                     <td class="capital">{{capital}}</td>
                 </tr>
-                <!--<tr>-->
-                    <!--<td class="textcol">Population of Capital:</td>-->
-                    <!--[><td class="capitalpopulation">{{capitalPopulation | number:0}}</td><]-->
-                    <!--<td class="capitalpopulation">{{capitalPopulation}}</td>-->
-                <!--</tr>-->
             </table>
         </center>
         <div class="infograph row">
@@ -34,14 +21,14 @@
                 <h4>Population</h4>
                 <h4>{{population | number:0}}</h4>
                 <div class="populationContainer">
-                    <div class="population"></div>
+                    <div class="population" ng-style="computeLayout(population, maxPopulation)"></div>
                 </div>
             </div>
             <div class="areaCol col-xs-6">
                 <h4>Area (Sq Km)</h4>
                 <h4>{{area | number:0}}</h4>
                 <div class="areaContainer">
-                    <div class="area"></div>
+                    <div class="area" ng-style="computeLayout(area, maxArea)"></div>
                 </div>
             </div>
         </div>
