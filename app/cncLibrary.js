@@ -73,6 +73,11 @@ angular.module('cncLibrary', [])
                 function($http,   $q,   GEONAMES_API_PREFIX) {
     return function(country) {
         var defer = $q.defer(),
+            path = "";
+
+        if (country.capital == "") {
+            defer.resolve(undefined);
+        } else {
             path = "/searchJSON?" +
                    "q=" + country.capital +
                    "&featureCode=PPLC" +
@@ -80,10 +85,11 @@ angular.module('cncLibrary', [])
                    "&maxRows=2" +
                    "&username=jettagozoom";
 
-        $http.get(GEONAMES_API_PREFIX + path)
-        .success(function(data) {
-            defer.resolve(data.geonames[0]);
-        })
+            $http.get(GEONAMES_API_PREFIX + path)
+            .success(function(data) {
+                defer.resolve(data.geonames[0]);
+            })
+        }
 
         return defer.promise;
     }

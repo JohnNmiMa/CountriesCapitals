@@ -175,9 +175,6 @@ body {
         text-align:left;
         color: #ff9500;
     }
-    .countryContent .countryInfo td {
-        min-width:0;
-    }
     .countryContent .countryInfo td.neighbors {
         max-width:200px;
     }
