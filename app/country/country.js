@@ -14,7 +14,7 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
 viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 'cncCountryNeighbors', 'cncTimezone', 'SQKM_TO_SQMI',
                                function($scope,   $q,   country,   cncCapital,   cncCountryNeighbors,   cncTimezone,   SQKM_TO_SQMI) {
 
-    $scope.numNeighbors = [];
+    $scope.numNeighbors = "?";
     $scope.countrycode = country.countryCode;
     $scope.country = country.countryName;
     $scope.population = Number(country.population);

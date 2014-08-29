@@ -1,7 +1,5 @@
 body {
     padding-top: 57px;
-    overflow-x:hidden;
-    overflow-y:hidden;
 }
 
 .cncBrand.navbar-brand {
@@ -54,6 +52,7 @@ body {
     }
     /*.homeContent .btn-primary {*/
     .btn-primary {
+        margin-bottom:20px;
         background-color: #21c300;
         border:none;
     }
