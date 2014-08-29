@@ -11,28 +11,31 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 'cncCountryNeighbors',
-                               function($scope,   $q,   country,   cncCapital,   cncCountryNeighbors) {
+viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 'cncCountryNeighbors', 'SQKM_TO_SQMI',
+                               function($scope,   $q,   country,   cncCapital,   cncCountryNeighbors,   SQKM_TO_SQMI) {
 
+    $scope.numNeighbors = [];
+    $scope.countrycode = country.countryCode;
+    $scope.country = country.countryName;
+    $scope.population = Number(country.population);
+    $scope.area = Number(country.areaInSqKm) * SQKM_TO_SQMI;
+    $scope.countrycode = country.countryCode;
+    $scope.continent= country.continentName;
     cncCapital(country).then(function(capital) {
         if (capital == undefined) {
+            $scope.capital = "N/A";
             $scope.capitalPopulation = 0;
         } else {
+            $scope.capital = country.capital;
             $scope.capitalPopulation = capital.population;
         }
     }).then(cncCountryNeighbors(country.geonameId)
     .then(function(neighbors) {
-        $scope.numNeighbors = neighbors.length;
-        $scope.neighbors = neighbors;
-        $scope.country = country.countryName;
-        $scope.population = Number(country.population);
-        $scope.area = Number(country.areaInSqKm) * 0.386102;
-        if (country.capital == "") {
-            $scope.capital = "N/A";
+        if (neighbors == undefined) {
+            $scope.numNeighbors = 0;
         } else {
-            $scope.capital = country.capital;
+            $scope.numNeighbors = neighbors.length;
+            $scope.neighbors = neighbors;
         }
-        $scope.countrycode = country.countryCode;
-        $scope.continent= country.continentName;
     }));
 }]);

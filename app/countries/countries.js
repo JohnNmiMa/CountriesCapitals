@@ -10,8 +10,8 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-viewsModule.controller('CountriesCtrl', ['$scope', 'countries',
-                                 function($scope,   countries) {
+viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'SQKM_TO_SQMI',
+                                 function($scope,   countries,   SQKM_TO_SQMI) {
     var area = population = usIndex = 0;
 
     $scope.countries = countries;
@@ -32,7 +32,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries',
             usIndex = index;
         }
     }
-    $scope.maxArea = $scope.maxArea * 0.386102; // Convert to Sq Mi
+    $scope.maxArea = $scope.maxArea * SQKM_TO_SQMI; // Convert to Sq Mi
 
     $scope.displayCountry = function(index) {
         setCountry(index);
@@ -45,7 +45,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries',
 
         $scope.country = countries[index].countryName;
         $scope.population = Number(countries[index].population);
-        $scope.area = Number(countries[index].areaInSqKm) * 0.386102;
+        $scope.area = Number(countries[index].areaInSqKm) * SQKM_TO_SQMI;
         $scope.capital = countries[index].capital;
         $scope.countrycode = countries[index].countryCode;
         $scope.continentcode = countries[index].continent;
