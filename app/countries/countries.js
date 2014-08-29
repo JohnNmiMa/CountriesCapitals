@@ -52,7 +52,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'SQKM_TO_SQMI',
     }
 
     $scope.computeLayout = function(size, maxSize) {
-        var ratio = ((size/maxSize) < 0.01) ? 0.01 : size/maxSize,
+        var ratio = ((size/maxSize) < 0.02) ? 0.02 : size/maxSize,
             widthPct = ratio * 100,
             widthPctT = widthPct.toString() + "%",
             offsetPctT = ((100 - widthPct)/2).toString() + "%";
