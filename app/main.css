@@ -44,6 +44,24 @@ body {
             color: #21c300;
         }
 
+.homeContent {
+}
+    .homeContent h3 {
+        color: #21c300;
+    }
+    .homeContent p {
+        color: #ff9500;
+    }
+    /*.homeContent .btn-primary {*/
+    .btn-primary {
+        background-color: #21c300;
+        border:none;
+    }
+        .btn-primary:hover {
+            background-color: #ff9500;
+            border:none;
+        }
+
 .sidebar {
     position:absolute;
     top:51px;
@@ -51,7 +69,7 @@ body {
     left:0;
     right:33.3333333333%;
     padding:5px 0;
-    /*background-color:#eee;*/
+    /*background-color:#fdfdfd;*/
     overflow-x:hidden;
     overflow-y: scroll;
 }
@@ -84,24 +102,6 @@ body {
         -webkit-box-shadow:none;
     }
 
-.homeContent {
-}
-    .homeContent h3 {
-        color: #21c300;
-    }
-    .homeContent p {
-        color: #ff9500;
-    }
-    /*.homeContent .btn-primary {*/
-    .btn-primary {
-        background-color: #21c300;
-        border:none;
-    }
-        .btn-primary:hover {
-            background-color: #ff9500;
-            border:none;
-        }
-
 .countriesContent {
     position:absolute;
     top:51px;
@@ -112,6 +112,7 @@ body {
     overflow-x:hidden;
     overflow-y: hidden;
     color: #21c300;
+    /*background-color:#fdfdfd;*/
 }
     .countryInfo {
         text-align:center;
@@ -168,13 +169,31 @@ body {
     text-align:center;
 }
     .countryContent .countryInfo {
+        /*background-color:#fdfdfd;*/
         display:inline-block;
+        margin-bottom:20px;
     }
 
     .countryContent .countryInfo h3 {
         text-align:left;
         color: #ff9500;
     }
+    .countryContent .countryInfo td {
+        min-width:0;
+    }
     .countryContent .countryInfo td.neighbors {
         max-width:200px;
+    }
+
+    .countryContent .mapnflag {
+        /*background-color:#fdfdfd;*/
+        margin-bottom:20px;
+    }
+    .countryContent .map img {
+        width:50%;
+        float:right;
+    }
+    .countryContent .flag img {
+        width:50%;
+        float:left;
     }

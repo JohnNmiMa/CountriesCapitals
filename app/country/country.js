@@ -22,6 +22,7 @@ viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 
         }
     }).then(cncCountryNeighbors(country.geonameId)
     .then(function(neighbors) {
+        $scope.numNeighbors = neighbors.length;
         $scope.neighbors = neighbors;
         $scope.country = country.countryName;
         $scope.population = Number(country.population);
