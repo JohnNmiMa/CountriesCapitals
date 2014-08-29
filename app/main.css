@@ -34,7 +34,6 @@ nav.navbar .fa.fa-spinner {
 
 .modal-content {
     padding:0 10px;
-    /*color: #21c300;*/
 }
     .modal-content ul {
         list-style-type:disc;
@@ -62,7 +61,6 @@ nav.navbar .fa.fa-spinner {
     .homeContent p {
         color: #ff9500;
     }
-    /*.homeContent .btn-primary {*/
     .btn-primary {
         margin-bottom:20px;
         background-color: #21c300;
@@ -80,7 +78,6 @@ nav.navbar .fa.fa-spinner {
     left:0;
     right:33.3333333333%;
     padding:5px 0;
-    /*background-color:#fdfdfd;*/
     overflow-x:hidden;
     overflow-y: scroll;
 }
@@ -123,7 +120,6 @@ nav.navbar .fa.fa-spinner {
     overflow-x:hidden;
     overflow-y: hidden;
     color: #21c300;
-    /*background-color:#fdfdfd;*/
 }
     .countryInfo {
         text-align:center;
@@ -179,11 +175,12 @@ nav.navbar .fa.fa-spinner {
             }
 
 .countryContent {
+    position:absolute;
+    top:51px;
     color: #21c300;
     text-align:center;
 }
     .countryContent .countryInfo {
-        /*background-color:#fdfdfd;*/
         display:inline-block;
         margin-bottom:20px;
     }
@@ -200,16 +197,38 @@ nav.navbar .fa.fa-spinner {
     }
 
     .countryContent .mapnflag {
-        /*background-color:#fdfdfd;*/
         margin-bottom:20px;
     }
     .countryContent .map img {
-        /*width:50%;*/
-        max-width:75%;
-        max-height:250px;
+        width:50%;
+        /*max-width:75%;*/
+        /*max-height:250px;*/
         float:right;
     }
     .countryContent .flag img {
         width:50%;
         float:left;
     }
+
+.fadeOut {
+    /* The base .fadeOutDownBig from animate.css must be disabled to enable
+     * ngAnimate and still use the base keyframes defined in animate.css. */
+    -webkit-animation-name: nullkeyframe;
+            animation-name: nullkeyframe;
+}
+.fadeOut.ng-leave {
+    -webkit-animation: 0.5s fadeOut;
+            animation: 0.5s fadeOut;
+}
+
+.fadeIn {
+    /* The base .fadeOutDownBig from animate.css must be disabled to enable
+     * ngAnimate and still use the base keyframes defined in animate.css. */
+    -webkit-animation-name: nullkeyframe;
+            animation-name: nullkeyframe;
+}
+.fadeIn.ng-enter {
+    -webkit-animation: 0.5s fadeIn;
+            animation: 0.5s fadeIn;
+}
+
