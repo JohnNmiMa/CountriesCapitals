@@ -1,8 +1,11 @@
 angular.module('cncApp', ['cncAppViews', 'ngRoute'])
 
-.run(function($rootScope, $location, $timeout) {
+.run(function($rootScope, $location, $route, $timeout) {
     $rootScope.$on('$routeChangeStart', function() {
-        $rootScope.isLoading = true;
+        // Don't do loading animation if going home
+        if ($location.$$path != "" && $location.$$path != "/") {
+            $rootScope.isLoading = true;
+        }
     });
     $rootScope.$on('$routeChangeSuccess', function() {
       $timeout(function() {
