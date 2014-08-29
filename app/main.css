@@ -2,24 +2,35 @@ body {
     padding-top: 57px;
 }
 
-.cncBrand.navbar-brand {
-    color: #21c300;
-}
-    .cncBrand.navbar-brand:hover {
-        color: #ff9500;
-    }
-.header-right {
+nav.navbar .fa.fa-spinner {
     position:absolute;
-    right:0;
-    top:0;
+    left:50%;
+    line-height:51px;
+    font-size:2em;
+    color: #21c300;
+    opacity:0;
 }
-    .header-right .glyphicon {
-        font-size:1.3em;
+    nav.navbar .fa.fa-spinner.fa-spin {
+        opacity:1;
+    }
+    .cncBrand.navbar-brand {
         color: #21c300;
     }
-        .header-right .glyphicon:hover {
+        .cncBrand.navbar-brand:hover {
             color: #ff9500;
         }
+    .header-right {
+        position:absolute;
+        right:0;
+        top:0;
+    }
+        .header-right .glyphicon {
+            font-size:1.3em;
+            color: #21c300;
+        }
+            .header-right .glyphicon:hover {
+                color: #ff9500;
+            }
 
 .modal-content {
     padding:0 10px;
@@ -41,6 +52,7 @@ body {
         .modal-content li a {
             color: #21c300;
         }
+
 
 .homeContent {
 }

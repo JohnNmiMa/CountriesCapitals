@@ -3,6 +3,7 @@
 <head>
     <!-- build:css ./_assets/combined.css -->
     <link rel="stylesheet" type="text/css" href="./reset.css" />
+    <link rel="stylesheet" type="text/css" href="./bower_components/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="./main.css" />
     <!-- endbuild -->
@@ -12,6 +13,7 @@
 
 <body ng-controller="CncCtrl">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <span class="fa fa-spinner" ng-class="{'fa-spin':isLoading}"></span>
         <div class="navbar-header">
             <a class="cncBrand navbar-brand" href="#!">Countries & Capitals</a>
         </div>

@@ -1,8 +1,8 @@
 Implement home view - DONE
 Implement countries view - DONE
 Implement country view - DONE
-Add loading state animation during AJAX calls.
+Add loading state animation during AJAX calls. - DONE
 Add smooth ng-view animations
-Enhance help screen
+Enhance help screen - DONE
 Improve file layout
 See if we can fix CSS to remove all jQuery in countries controller
