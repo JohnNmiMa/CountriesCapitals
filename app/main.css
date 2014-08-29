@@ -126,7 +126,7 @@ body {
         }
             td {
                 font-size:.90em;
-                padding:5px 3px;
+                padding:2px 2px;
                 min-width:150px;
             }
             td.labelcol {
@@ -179,7 +179,7 @@ body {
         color: #ff9500;
     }
     .countryContent .countryInfo td {
-        min-width:0;
+        /*min-width:0;*/
     }
     .countryContent .countryInfo td.neighbors {
         width:200px;
@@ -190,7 +190,9 @@ body {
         margin-bottom:20px;
     }
     .countryContent .map img {
-        width:50%;
+        /*width:50%;*/
+        max-width:75%;
+        max-height:250px;
         float:right;
     }
     .countryContent .flag img {

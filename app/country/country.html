@@ -13,6 +13,10 @@
                         <td class="valuecol population">{{population | number:0}}</td>
                     </tr>
                     <tr>
+                        <td class="labelcol">Area (Sq Mi):</td>
+                        <td class="valuecol area">{{area | number:0}}</td>
+                    </tr>
+                    <tr>
                         <td class="labelcol">Capital:</td>
                         <td class="valuecol capital">{{capital}}</td>
                     </tr>
@@ -21,8 +25,8 @@
                         <td class="valuecol capitalPop">{{capitalPopulation | number:0}}</td>
                     </tr>
                     <tr>
-                        <td class="labelcol">Area (Sq Mi):</td>
-                        <td class="valuecol area">{{area | number:0}}</td>
+                        <td class="labelcol">Time (GMT Offset = {{timezone}}):</td>
+                        <td class="valuecol time">{{time | date:'h:mm a'}}</td>
                     </tr>
                     <tr>
                         <td class="labelcol">Continent:</td>

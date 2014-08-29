@@ -110,4 +110,22 @@ angular.module('cncLibrary', [])
 
         return defer.promise;
     }
+}])
+
+.factory('cncTimezone', ['$http', '$q', 'GEONAMES_API_PREFIX',
+                function($http,   $q,   GEONAMES_API_PREFIX) {
+    return function(capital) {
+        var defer = $q.defer(),
+            path = "/timezoneJSON" +
+                   "?lat=" + capital.lat +
+                   "&lng=" + capital.lng +
+                   "&username=jettagozoom";
+
+        $http.get(GEONAMES_API_PREFIX + path)
+        .success(function(data) {
+            defer.resolve(data);
+        })
+
+        return defer.promise;
+    }
 }]);

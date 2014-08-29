@@ -11,8 +11,8 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 'cncCountryNeighbors', 'SQKM_TO_SQMI',
-                               function($scope,   $q,   country,   cncCapital,   cncCountryNeighbors,   SQKM_TO_SQMI) {
+viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 'cncCountryNeighbors', 'cncTimezone', 'SQKM_TO_SQMI',
+                               function($scope,   $q,   country,   cncCapital,   cncCountryNeighbors,   cncTimezone,   SQKM_TO_SQMI) {
 
     $scope.numNeighbors = [];
     $scope.countrycode = country.countryCode;
@@ -21,6 +21,7 @@ viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 
     $scope.area = Number(country.areaInSqKm) * SQKM_TO_SQMI;
     $scope.countrycode = country.countryCode;
     $scope.continent= country.continentName;
+    $scope.timezone = "?";
     cncCapital(country).then(function(capital) {
         if (capital == undefined) {
             $scope.capital = "N/A";
@@ -28,9 +29,14 @@ viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 
         } else {
             $scope.capital = country.capital;
             $scope.capitalPopulation = capital.population;
+            cncTimezone(capital).then(function(timezone) {
+                var utc = new Date(timezone.time).valueOf();
+                $scope.timezone = timezone.gmtOffset;
+                $scope.time = utc;
+            });
         }
-    }).then(cncCountryNeighbors(country.geonameId)
-    .then(function(neighbors) {
+    })
+    .then(cncCountryNeighbors(country.geonameId).then(function(neighbors) {
         if (neighbors == undefined) {
             $scope.numNeighbors = 0;
         } else {
