@@ -1,0 +1,76 @@
+body {
+    padding-top: 57px;
+}
+
+nav.navbar .fa.fa-spinner {
+    position:absolute;
+    left:50%;
+    line-height:51px;
+    font-size:2em;
+    color: #21c300;
+    opacity:0;
+}
+    nav.navbar .fa.fa-spinner.fa-spin {
+        opacity:1;
+    }
+    .cncBrand.navbar-brand {
+        color: #21c300;
+    }
+        .cncBrand.navbar-brand:hover {
+            color: #ff9500;
+        }
+    .header-right {
+        position:absolute;
+        right:0;
+        top:0;
+    }
+        .header-right .glyphicon {
+            font-size:1.3em;
+            color: #21c300;
+        }
+            .header-right .glyphicon:hover {
+                color: #ff9500;
+            }
+
+.modal-content {
+    padding:0 10px;
+}
+    .modal-content ul {
+        list-style-type:disc;
+        list-style-position:outside;
+        padding:0 18px;
+    }
+        .modal-content h3 {
+            margin:10px 0 5px 0;
+            color: #ff9500;
+        }
+        .modal-content li p {
+            margin:0;
+            color: #21c300;
+        }
+        .modal-content li a {
+            color: #21c300;
+        }
+
+.fadeOut {
+    /* The base .fadeOutDownBig from animate.css must be disabled to enable
+     * ngAnimate and still use the base keyframes defined in animate.css. */
+    -webkit-animation-name: nullkeyframe;
+            animation-name: nullkeyframe;
+}
+.fadeOut.ng-leave {
+    -webkit-animation: 0.4s fadeOut;
+            animation: 0.4s fadeOut;
+}
+
+.fadeIn {
+    /* The base .fadeOutDownBig from animate.css must be disabled to enable
+     * ngAnimate and still use the base keyframes defined in animate.css. */
+    -webkit-animation-name: nullkeyframe;
+            animation-name: nullkeyframe;
+}
+.fadeIn.ng-enter {
+    -webkit-animation: 0.4s fadeIn;
+            animation: 0.4s fadeIn;
+}
+
