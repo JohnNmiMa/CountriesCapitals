@@ -8,16 +8,16 @@ angular.module('cncApp', ['cncAppViews', 'ngRoute'])
         }
     });
     $rootScope.$on('$routeChangeSuccess', function() {
-      $timeout(function() {
-        $rootScope.isLoading = false;
-      }, 1000);
+        $timeout(function() {
+            $rootScope.isLoading = false;
+        }, 1000);
     });
 })
 
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     $routeProvider.otherwise({
-      redirectTo : '/'
+        redirectTo : '/'
     });
 }])
 

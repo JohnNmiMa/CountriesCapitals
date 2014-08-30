@@ -58,8 +58,7 @@ angular.module('cncLibrary', [])
                 function(cncCountries,   $q) {
     return function(countryCode) {
         var defer = $q.defer();
-        cncCountries()
-        .then(function(countries) {
+        cncCountries().then(function(countries) {
             for (index in countries) {
                 if (countryCode === countries[index].countryCode) {
                     defer.resolve(countries[index]);

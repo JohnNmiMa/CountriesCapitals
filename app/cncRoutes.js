@@ -11,6 +11,27 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
                 return cncCountries();
             }]
         }
+        //resolve : {
+            //capitalData : ['cncCountries', 'cncTimezone', 'cncCountryNeighbors',
+              //function(cncCountries,   cncTimezone,   cncCountryNeighbors) {
+                //var data = {};
+                //cncCapital(country).then(function(capital) {
+                    //data.capital = capital;
+                    //if (capital == undefined) {
+                        //return undefined;
+                    //} else {
+                        //return cncTimezone(capital);
+                    //}
+                //}).then(function(timezone) {
+                    //data.timezome = timezone;
+                //});
+
+                //cncCountryNeighbors(country.geonameId).then(function(neighbors) {
+                    //data.neighbors = neighbors;
+                //});
+                //return data;
+            //}]
+        //}
     })
     .when("/countries/:country/capital", {
         templateUrl : "./country/country.html",
