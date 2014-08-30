@@ -217,8 +217,8 @@ nav.navbar .fa.fa-spinner {
             animation-name: nullkeyframe;
 }
 .fadeOut.ng-leave {
-    -webkit-animation: 0.5s fadeOut;
-            animation: 0.5s fadeOut;
+    -webkit-animation: 0.4s fadeOut;
+            animation: 0.4s fadeOut;
 }
 
 .fadeIn {
@@ -228,7 +228,7 @@ nav.navbar .fa.fa-spinner {
             animation-name: nullkeyframe;
 }
 .fadeIn.ng-enter {
-    -webkit-animation: 0.5s fadeIn;
-            animation: 0.5s fadeIn;
+    -webkit-animation: 0.4s fadeIn;
+            animation: 0.4s fadeIn;
 }
 
