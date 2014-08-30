@@ -1,15 +1,3 @@
-viewsModule.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when("/countries", {
-        templateUrl : "./countries/countries.html",
-        controller : 'CountriesCtrl',
-        resolve : {
-            countries : ['cncCountries', function(cncCountries) {
-                return cncCountries();
-            }]
-        }
-    });
-}]);
-
 viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'SQKM_TO_SQMI',
                                  function($scope,   countries,   SQKM_TO_SQMI) {
     var area = population = usIndex = 0;

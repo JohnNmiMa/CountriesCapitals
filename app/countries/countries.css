@@ -75,22 +75,19 @@
         margin:0;
         /*border:1px solid black;*/
     }
+        }
         .infograph .popCol  {
             padding-right: 0;
         }
         .infograph .areaCol  {
             padding-left: 0;
         }
-        .infograph .populationContainer,
-        .infograph .areaContainer {
-            position:relative;
+        .infograph h4 {
+           text-align:center;
         }
-            .infograph h4 {
-               text-align:center;
-            }
             .infograph .population, .infograph .area {
+                position:relative;
                 box-sizing: border-box;
-                position:absolute;
             }
             .infograph .population {
                 box-shadow: 0 0 3px 3px rgba(33,195,0,0.9), 0 0 5px 5px rgba(33,195,0,0.6), inset 0 0 9px 9px rgba(33,195,0,0.3);
