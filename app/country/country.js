@@ -1,16 +1,3 @@
-viewsModule.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when("/countries/:country/capital", {
-        templateUrl : "./country/country.html",
-        controller : 'CountryCtrl',
-        resolve : {
-            country : ['cncCountry', '$route', function(cncCountry, $route) {
-                var countryCode = $route.current.params.country;
-                return cncCountry(countryCode);
-            }]
-        }
-    });
-}]);
-
 viewsModule.controller('CountryCtrl', ['$scope', '$q', 'country', 'cncCapital', 'cncCountryNeighbors', 'cncTimezone', 'SQKM_TO_SQMI',
                                function($scope,   $q,   country,   cncCapital,   cncCountryNeighbors,   cncTimezone,   SQKM_TO_SQMI) {
 

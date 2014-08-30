@@ -22,6 +22,7 @@ angular.module('cncLibrary', [])
         return defer.promise;
     }
 
+    // This is used to remove duplicate counties. There were a number of them.
     function removeDups(countries) {
         var newname = "",
             tmpArray = [],
@@ -40,7 +41,7 @@ angular.module('cncLibrary', [])
                     var name = tmpArray[i].countryName;
                     if (name === newname) {
                         foundDup = true;
-                        console.log("Found a duplicate name: " + newname);
+                        //console.log("Found a duplicate name: " + newname);
                         break;
                     }
                 }
