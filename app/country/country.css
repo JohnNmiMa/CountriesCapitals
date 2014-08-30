@@ -1,0 +1,35 @@
+.countryContent {
+    position:absolute;
+    top:51px;
+    color: #21c300;
+    text-align:center;
+}
+    .countryContent .countryInfo {
+        display:inline-block;
+        margin-bottom:20px;
+    }
+
+    .countryContent .countryInfo h3 {
+        text-align:left;
+        color: #ff9500;
+    }
+    .countryContent .countryInfo td {
+        /*min-width:0;*/
+    }
+    .countryContent .countryInfo td.neighbors {
+        width:200px;
+    }
+
+    .countryContent .mapnflag {
+        margin-bottom:20px;
+    }
+    .countryContent .map img {
+        width:50%;
+        /*max-width:75%;*/
+        /*max-height:250px;*/
+        float:right;
+    }
+    .countryContent .flag img {
+        width:50%;
+        float:left;
+    }
