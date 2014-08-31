@@ -1,4 +1,4 @@
-viewsModule.controller('CountryCtrl', ['$scope', 'capitalData', 'SQKM_TO_SQMI',
+viewsModule.controller('CapitalCtrl', ['$scope', 'capitalData', 'SQKM_TO_SQMI',
                                function($scope,   capitalData,   SQKM_TO_SQMI) {
 
     $scope.numNeighbors = "?";

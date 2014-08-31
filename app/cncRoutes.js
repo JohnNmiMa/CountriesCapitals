@@ -13,8 +13,8 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
         }
     })
     .when("/countries/:country/capital", {
-        templateUrl : "./country/country.html",
-        controller : 'CountryCtrl',
+        templateUrl : "./capital/capital.html",
+        controller : 'CapitalCtrl',
         resolve : {
             capitalData : ['$route', '$q', 'cncCountry', 'cncCapital', 'cncTimezone', 'cncCountryNeighbors',
                    function($route,   $q,   cncCountry,   cncCapital,   cncTimezone,   cncCountryNeighbors) {
