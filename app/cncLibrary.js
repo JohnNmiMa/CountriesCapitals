@@ -96,7 +96,7 @@ angular.module('cncLibrary', [])
 }])
 
 .factory('cncCountryNeighbors', ['$http', '$q', 'GEONAMES_API_PREFIX',
-                function($http,   $q,   GEONAMES_API_PREFIX) {
+                         function($http,   $q,   GEONAMES_API_PREFIX) {
     return function(geonameId) {
         var defer = $q.defer(),
             path = "/neighboursJSON" +
@@ -113,18 +113,24 @@ angular.module('cncLibrary', [])
 }])
 
 .factory('cncTimezone', ['$http', '$q', 'GEONAMES_API_PREFIX',
-                function($http,   $q,   GEONAMES_API_PREFIX) {
+                 function($http,   $q,   GEONAMES_API_PREFIX) {
     return function(capital) {
         var defer = $q.defer(),
+            path = "";
+
+        if (capital == undefined) {
+            defer.resolve(undefined);
+        } else {
             path = "/timezoneJSON" +
                    "?lat=" + capital.lat +
                    "&lng=" + capital.lng +
                    "&username=jettagozoom";
 
-        $http.get(GEONAMES_API_PREFIX + path)
-        .success(function(data) {
-            defer.resolve(data);
-        })
+            $http.get(GEONAMES_API_PREFIX + path)
+            .success(function(data) {
+                defer.resolve(data);
+            })
+        }
 
         return defer.promise;
     }
