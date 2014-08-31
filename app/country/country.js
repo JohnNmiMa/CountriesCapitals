@@ -20,9 +20,8 @@ viewsModule.controller('CountryCtrl', ['$scope', 'capitalData', 'SQKM_TO_SQMI',
     if (capitalData.timezone == undefined) {
         $scope.timezone = "?";
     } else {
-        var utc = new Date(capitalData.timezone.time).valueOf();
+        $scope.time = capitalData.timezone.time.replace(/ /g, 'T');
         $scope.timezone = capitalData.timezone.gmtOffset;
-        $scope.time = utc;
     }
 
     if (capitalData.neighbors == undefined) {
