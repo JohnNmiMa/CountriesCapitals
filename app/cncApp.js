@@ -10,7 +10,7 @@ angular.module('cncApp', ['cncAppViews', 'ngRoute'])
     $rootScope.$on('$routeChangeSuccess', function() {
         $timeout(function() {
             $rootScope.isLoading = false;
-        }, 1000);
+        }, 500);
     });
 })
 
