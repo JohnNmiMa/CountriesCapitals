@@ -27,19 +27,16 @@
     .countryContent .map img {
         max-width:50%;
         max-height:250px;
+        margin-bottom:20px;
     }
     .countryContent .flag img {
         width:50%;
         border:1px solid black;
     }
-    @media(max-width:767px) {
-        .countryContent .map img {
-            margin-bottom:20px;
-        }
-    }
     @media(min-width:767px) {
         .countryContent .map img {
             float:right;
+            margin-bottom:0;
         }
         .countryContent .flag img {
             float:left;
