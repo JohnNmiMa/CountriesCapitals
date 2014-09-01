@@ -3,7 +3,9 @@
     top:51px;
     color: #21c300;
     text-align:center;
-    padding-right:0;
+    margin:0 auto;
+    left:0;
+    right:0;
 }
     .countryContent .countryInfo {
         display:inline-block;
