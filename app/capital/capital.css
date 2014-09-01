@@ -3,6 +3,7 @@
     top:51px;
     color: #21c300;
     text-align:center;
+    padding-right:0;
 }
     .countryContent .countryInfo {
         display:inline-block;
@@ -26,10 +27,21 @@
     .countryContent .map img {
         max-width:50%;
         max-height:250px;
-        float:right;
     }
     .countryContent .flag img {
         width:50%;
-        float:left;
         border:1px solid black;
+    }
+    @media(max-width:767px) {
+        .countryContent .map img {
+            margin-bottom:20px;
+        }
+    }
+    @media(min-width:767px) {
+        .countryContent .map img {
+            float:right;
+        }
+        .countryContent .flag img {
+            float:left;
+        }
     }
