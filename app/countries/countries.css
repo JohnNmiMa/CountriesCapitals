@@ -83,10 +83,6 @@
     overflow-x:hidden;
     overflow-y: hidden;
     color: #21c300;
-<<<<<<< HEAD
-=======
-    right:0;
->>>>>>> responsive-countries-view
     overflow-y:scroll;
 }
     .countryInfo {
