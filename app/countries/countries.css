@@ -57,6 +57,8 @@
     padding:0;
     overflow-x:hidden;
     color: #21c300;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
 }
     .countriesDropdown {
         position:absolute;
@@ -66,8 +68,8 @@
         padding:0 15px 15px 15px;
         background-color:#fff;
         z-index:10;
-        overflow-y:scroll;
-        -webkit-overflow-scrolling: touch;
+        /*overflow-y:scroll;*/
+        /*-webkit-overflow-scrolling: touch;*/
     }
 
     .countryInfo {
