@@ -44,7 +44,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'SQKM_TO_SQMI',
         $scope.countryInfo = countries[index];
     }
 
-    $scope.computeLayout = function(size, maxSize, areaorpop) {
+    $scope.computeLayout = function(size, maxSize, areaOrPopulation) {
         var width = Number($(".infograph .populationContainer").width()),
             ratio = ((size/maxSize) < 0.02) ? 0.02 : size/maxSize,
             widthPct = ratio * 100,
@@ -53,18 +53,18 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'SQKM_TO_SQMI',
             mq = window.matchMedia( "(min-width: 767px)" ); // Bootstrap's xs break
 
         if(mq.matches) {
-            console.log("Browser window is 767 pixels or more");
+            //console.log("Browser window is 767 pixels or more");
             var heightSize = width * ratio;
-            if (areaorpop == "area") {
+            if (areaOrPopulation == "area") {
                 $(".infograph .areaContainer").height(width);
             } else {
                 $(".infograph .populationContainer").height(width);
             }
             return {'width':widthPctT, 'height':widthPctT, 'border-radius':'50%', 'left':offsetPctT, 'top':offsetPctT};
         } else {
-            console.log("Browser window is 767 pixels or less");
+            //console.log("Browser window is 767 pixels or less");
             var heightSize = width * ratio;
-            if (areaorpop == "area") {
+            if (areaOrPopulation == "area") {
                 $(".infograph .areaContainer").height(heightSize);
             } else {
                 $(".infograph .populationContainer").height(heightSize);
