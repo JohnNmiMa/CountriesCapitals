@@ -19,8 +19,10 @@
 <body ng-controller="CncCtrl">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <span class="fa fa-spinner" ng-class="{'fa-spin':isLoading}"></span>
-        <div class="navbar-header">
-            <a class="cncBrand navbar-brand" href="#!">Countries & Capitals</a>
+        <a class="cncBrand navbar-brand" href="#!">Countries & Capitals</a>
+        <a href="javascript:void(0)" class="dropdownToggle hidden-md hidden-lg" ng-click="toggleCountries()" ng-show="showDropdown == true">
+            Countries<span class="caret"></span>
+        </a>
         </div>
         <a class="header-right navbar-brand" href="javascript:void(0)" ng-click="displayInfo()">
             <span class="glyphicon glyphicon-info-sign"></span></a>
