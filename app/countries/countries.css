@@ -36,32 +36,6 @@
         -webkit-box-shadow:none;
     }
 
-.countriesDropdown {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    padding:0 15px 15px 15px;
-    /*z-index:1200;*/
-}
-    .countriesDropdown {
-        position:absolute;
-        z-index:10;
-        /*top:51px;*/
-        background-color:#fff;
-    }
-    .countriesDropdown .dropdownMenu {
-        /*position:absolute;*/
-        /*z-index:1100;*/
-        /*top:51px;*/
-        /*left:0;*/
-        /*right:0;*/
-        /*width:100%;*/
-        /*height:100%;*/
-        /*background-color:#fff;*/
-        /*overflow-y:scroll;*/
-    }
-
 @media(max-width:992px) {
     .countriesContent {
         width:100%;
@@ -81,10 +55,19 @@
     right:0;
     padding:0;
     overflow-x:hidden;
-    overflow-y: hidden;
     color: #21c300;
-    overflow-y:scroll;
 }
+    .countriesDropdown {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        padding:0 15px 15px 15px;
+        background-color:#fff;
+        z-index:10;
+        overflow-y:scroll;
+    }
+
     .countryInfo {
         text-align:center;
     }
@@ -111,16 +94,20 @@
             }
 
     .infograph {
-        padding:20px 0;
         margin:0;
-        /*border:1px solid black;*/
     }
+        .infograph .popCol, .infograph .areaCol  {
+            margin-bottom:30px;
         }
-        .infograph .popCol  {
-            padding-right: 0;
+        @media(min-width:767px) {
+            .infograph .popCol  {
+                padding-right: 0;
+            }
         }
-        .infograph .areaCol  {
-            padding-left: 0;
+        @media(min-width:767px) {
+            .infograph .areaCol  {
+                padding-left: 0;
+            }
         }
         .infograph h4 {
            text-align:center;
