@@ -16,7 +16,7 @@
                 </li>
             </ul>
         </div>
-        <div class="countryInfo">
+        <div class="countryInfo" ng-hide="showCountries">
             <a ng-href="#!/countries/{{countryInfo.countryCode}}/capital"><h3 class="country">{{country}}</h3></a>
             <table class="center">
                 <tr>
@@ -33,7 +33,7 @@
                 </tr>
             </table>
         </div>
-        <div class="infograph row">
+        <div class="infograph row" ng-hide="showCountries">
             <div class="popCol col-sm-6">
                 <h4>Population</h4>
                 <h4>{{population | number:0}}</h4>
