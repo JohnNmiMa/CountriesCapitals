@@ -1,6 +1,8 @@
 viewsModule.controller('CapitalCtrl', ['$scope', 'capitalData', 'SQKM_TO_SQMI',
                                function($scope,   capitalData,   SQKM_TO_SQMI) {
 
+    $scope.$emit('showDropdown', false);
+
     $scope.numNeighbors = "?";
     $scope.countrycode = capitalData.country.countryCode;
     $scope.country = capitalData.country.countryName;

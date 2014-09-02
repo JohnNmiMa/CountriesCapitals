@@ -2,23 +2,25 @@ body {
     padding-top: 57px;
 }
 
-nav.navbar .fa.fa-spinner {
-    position:absolute;
-    left:50%;
-    line-height:51px;
-    font-size:2em;
-    color: #21c300;
-    opacity:0;
+.navbar {
+    min-width:320px;
 }
-    nav.navbar .fa.fa-spinner.fa-spin {
-        opacity:1;
-    }
     .cncBrand.navbar-brand {
         color: #21c300;
     }
         .cncBrand.navbar-brand:hover {
             color: #ff9500;
         }
+        .dropdownToggle {
+            position:relative;
+            color: #21c300;
+            line-height:51px;
+            z-index="1200";
+        }
+            .dropdownToggle:hover {
+                color: #ff9500;
+                text-decoration:none;
+            }
     .header-right {
         position:absolute;
         right:0;
@@ -31,6 +33,17 @@ nav.navbar .fa.fa-spinner {
             .header-right .glyphicon:hover {
                 color: #ff9500;
             }
+    nav.navbar .fa.fa-spinner {
+        position:absolute;
+        left:50%;
+        line-height:51px;
+        font-size:2em;
+        color: #21c300;
+        opacity:0;
+    }
+        nav.navbar .fa.fa-spinner.fa-spin {
+            opacity:1;
+        }
 
 .modal-content {
     padding:0 10px;

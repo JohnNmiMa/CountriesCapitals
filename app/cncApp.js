@@ -23,8 +23,19 @@ angular.module('cncApp', ['cncAppViews', 'ngRoute'])
 
 .controller('CncCtrl', ['$scope', 
                 function($scope) {
+    $scope.showDropdown = false;
+
     $scope.displayInfo = function() {
         console.log("Display Info");
         $('.infoModal').modal({});
     }
+
+    $scope.toggleCountries = function() {
+        $scope.$broadcast('toggleCountries');
+    }
+
+    $scope.$on('showDropdown', function(event, showDropdown) {
+        $scope.showDropdown = showDropdown;
+    });
+
 }]);
