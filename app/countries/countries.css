@@ -47,6 +47,7 @@
     overflow-x:hidden;
     overflow-y: hidden;
     color: #21c300;
+    overflow-y:scroll;
 }
     .countryInfo {
         text-align:center;
