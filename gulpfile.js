@@ -7,6 +7,8 @@ var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var rev = require('gulp-rev');
 var clean = require('gulp-clean');
+var replace = require('gulp-replace');
+var rename = require('gulp-rename');
 
 gulp.task('copy-html-files', function() {
     //gulp.src(['./app/**/*.html', './app/**/*.css',
@@ -22,24 +24,32 @@ gulp.task('copy-html-files', function() {
               './app/bower_components/bootstrap/dist/fonts/*.svg',
               './app/bower_components/bootstrap/dist/fonts/*.ttf',
               './app/bower_components/bootstrap/dist/fonts/*.woff',
-              './app/bower_components/fontawesome/css/font-awesome.css',
-              './app/bower_components/bootstrap/dist/css/bootstrap.css',
               ], {base: './app'})
     .pipe(gulp.dest('build/'));
 });
 
+gulp.task('fix-awesome-paths', ['fix-glyphicon-paths'], function() {
+    gulp.src('./build/_assets/combined-*.css')
+    .pipe(replace('../fonts/fontawesome-webfont', '../bower_components/fontawesome/fonts/fontawesome-webfont'))
+    .pipe(gulp.dest('./build/_assets'));
+});
+
+gulp.task('fix-glyphicon-paths', ['usemin'], function() {
+    return gulp.src('./build/_assets/combined-*.css')
+    .pipe(replace('../fonts/glyphicons-halflings', '../bower_components/bootstrap/dist/fonts/glyphicons-halflings'))
+    .pipe(gulp.dest('./build/_assets'));
+});
+
 gulp.task('usemin', function() {
-    gulp.src(['./app/index.html',
-              '!./app/bower_components/fontawesome/css/font-awesome.css',
-              '!./app/bower_components/bootstrap/dist/css/bootstrap.css'],
-              {base: './app'})
+    return gulp.src('./app/index.html')
     .pipe(usemin({
+        assetsDir: 'app',
         css: [minifyCss(), 'concat', rev()],
-        //js: [uglify(), rev()]
-        //js: [uglify({mangle: false, preserveComments: 'some'}), rev()]
-        js: [uglify({preserveComments: 'some'}), rev()]
+        //js: [uglify({mangle: false}), rev()] // don't mangle names
+        //js: [uglify({preserveComments: 'some'}), rev()] // keep comments that start with !
+        js: [uglify(), rev()]
     }))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest('build'));
 });
 
 gulp.task('connect', function() {
@@ -50,4 +60,5 @@ gulp.task('connect', function() {
 
 // Default Task
 gulp.task('default', ['connect']);
-gulp.task('build', ['copy-html-files', 'usemin']);
+// Build Task - has multiple dependencies that need to run serially
+gulp.task('build', ['copy-html-files', 'usemin', 'fix-awesome-paths', 'fix-glyphicon-paths']);
