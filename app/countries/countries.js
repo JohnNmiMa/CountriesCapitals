@@ -1,11 +1,18 @@
-viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'SQKM_TO_SQMI',
-                                 function($scope,   countries,   SQKM_TO_SQMI) {
-    var area = population = usIndex = 0;
+viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM_TO_SQMI',
+                                 function($scope,   countries,   countryCode,   SQKM_TO_SQMI) {
+    var area = population = countryIndex = 0;
 
     $scope.$emit('showDropdown', true);
 
-    $scope.showCountries = false;
+    if (countryCode == "ALL") {
+        $scope.showCountryList = true;
+        $scope.showCountryInfo = false;
+    } else {
+        $scope.showCountryList = false;
+        $scope.showCountryInfo = true;
+    }
     $scope.countries = countries;
+    $scope.countrycode = countryCode;
     $scope.maxPopulation = 0;
     $scope.maxArea = 0;
     $scope.countryInfo = {};
@@ -20,15 +27,16 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'SQKM_TO_SQMI',
         if ($scope.maxArea < area) {
             $scope.maxArea = area;
         }
-        if (countries[index].countryCode == "US") {
-            usIndex = index;
+        if (countries[index].countryCode == countryCode) {
+            countryIndex = index;
         }
     }
     $scope.maxArea = $scope.maxArea * SQKM_TO_SQMI; // Convert to Sq Mi
 
     $scope.displayCountry = function(index) {
         setCountry(index);
-        $scope.showCountries = false;
+        $scope.showCountryInfo = true;
+        $scope.showCountryList = false;
     }
 
     function setCountry(index) {
@@ -74,8 +82,15 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'SQKM_TO_SQMI',
     }
 
     $scope.$on('toggleCountries', function(event) {
-        $scope.showCountries = !$scope.showCountries;
+        $scope.showCountryList = !$scope.showCountryList;
+        if ($scope.showCountryList == true) {
+            $scope.showCountryInfo = false;
+        }
     });
 
-    setCountry(usIndex);
+    if (countryCode === "ALL") {
+        $scope.showCountryInfo = false;
+    } else {
+        setCountry(countryIndex);
+    }
 }]);

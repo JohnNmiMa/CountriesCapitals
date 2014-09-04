@@ -5,11 +5,20 @@ viewsModule.config(['$routeProvider',
         controller : 'HomeCtrl'
     })
     .when("/countries", {
+        redirectTo : function() {
+            return "/countries/ALL";
+        }
+    })
+    .when("/countries/:country", {
         templateUrl : "./countries/countries.html",
         controller : 'CountriesCtrl',
         resolve : {
             countries : ['cncCountries', function(cncCountries) {
                 return cncCountries();
+            }],
+            country : ['$route',
+               function($route) {
+                return $route.current.params.country;
             }]
         }
     })

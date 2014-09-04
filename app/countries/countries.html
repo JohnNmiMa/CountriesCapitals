@@ -10,13 +10,13 @@
     <!--<div class="countriesContent col-xs-12 hidden-md hidden-lg">-->
     <div class="countriesContent">
         <div class="countriesDropdown hidden-md hidden-lg">
-            <ul class="dropdownMenu" ng-show="showCountries">
+            <ul class="dropdownMenu" ng-show="showCountryList">
                 <li class="country" ng-repeat="name in countries" ng-click="displayCountry($index)">
                     <a class="btn btn-default">{{name.countryName}}</a>
                 </li>
             </ul>
         </div>
-        <div class="countryInfo" ng-hide="showCountries">
+        <div class="countryInfo" ng-show="showCountryInfo">
             <a ng-href="#!/countries/{{countryInfo.countryCode}}/capital"><h3 class="country">{{country}}</h3></a>
             <table class="center">
                 <tr>
@@ -33,7 +33,7 @@
                 </tr>
             </table>
         </div>
-        <div class="infograph row" ng-hide="showCountries">
+        <div class="infograph row" ng-show="showCountryInfo">
             <div class="popCol col-sm-6">
                 <h4>Population</h4>
                 <h4>{{population | number:0}}</h4>
