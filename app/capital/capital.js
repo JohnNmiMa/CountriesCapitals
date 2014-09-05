@@ -8,7 +8,6 @@ viewsModule.controller('CapitalCtrl', ['$scope', 'capitalData', 'SQKM_TO_SQMI',
     $scope.country = capitalData.country.countryName;
     $scope.population = Number(capitalData.country.population);
     $scope.area = Number(capitalData.country.areaInSqKm) * SQKM_TO_SQMI;
-    $scope.countrycode = capitalData.country.countryCode;
     $scope.continent= capitalData.country.continentName;
 
     if (capitalData.country.capital == "") {

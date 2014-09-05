@@ -16,7 +16,7 @@ body {
             position:relative;
             color: #21c300;
             line-height:51px;
-            z-index="1200";
+            z-index:1200;
         }
             .dropdownToggle:hover {
                 color: #ff9500;

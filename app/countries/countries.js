@@ -1,6 +1,8 @@
 viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM_TO_SQMI',
                                  function($scope,   countries,   countryCode,   SQKM_TO_SQMI) {
-    var area = population = countryIndex = 0;
+    var area =0,
+        population =0,
+        countryIndex = 0;
 
     $scope.$emit('showDropdown', true);
 
@@ -17,7 +19,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM
     $scope.maxArea = 0;
     $scope.countryInfo = {};
 
-    for (index in countries) {
+    for (var index in countries) {
         population = Number(countries[index].population);
         area = Number(countries[index].areaInSqKm);
 
