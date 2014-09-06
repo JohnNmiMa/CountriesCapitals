@@ -1,4 +1,4 @@
-xdescribe("cncAppViews", function() {
+describe("cncAppViews", function() {
     beforeEach(angular.mock.module('cncAppViews'));
     describe('CountriesCtrl', function() {
         var ctrl, scope,
