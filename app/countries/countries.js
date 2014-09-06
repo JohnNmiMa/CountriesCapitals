@@ -1,12 +1,12 @@
 viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM_TO_SQMI',
-                                 function($scope,   countries,   countryCode,   SQKM_TO_SQMI) {
+                                 function($scope,   countries,   country,   SQKM_TO_SQMI) {
     var area =0,
         population =0,
         countryIndex = 0;
 
     $scope.$emit('showDropdown', true);
 
-    if (countryCode == "ALL") {
+    if (country == "ALL") {
         $scope.showCountryList = true;
         $scope.showCountryInfo = false;
     } else {
@@ -14,7 +14,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM
         $scope.showCountryInfo = true;
     }
     $scope.countries = countries;
-    $scope.countrycode = countryCode;
+    $scope.countrycode = country;
     $scope.maxPopulation = 0;
     $scope.maxArea = 0;
     $scope.countryInfo = {};
@@ -29,7 +29,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM
         if ($scope.maxArea < area) {
             $scope.maxArea = area;
         }
-        if (countries[index].countryCode == countryCode) {
+        if (countries[index].countryCode == country) {
             countryIndex = index;
         }
     }
@@ -42,9 +42,6 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM
     }
 
     function setCountry(index) {
-        var width = Number($(".infograph .populationContainer").width()),
-            mq = window.matchMedia( "(min-width: 767px)" );
-
         $scope.country = countries[index].countryName;
         $scope.population = Number(countries[index].population);
         $scope.area = Number(countries[index].areaInSqKm) * SQKM_TO_SQMI;
@@ -90,7 +87,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM
         }
     });
 
-    if (countryCode === "ALL") {
+    if (country === "ALL") {
         $scope.showCountryInfo = false;
     } else {
         setCountry(countryIndex);
