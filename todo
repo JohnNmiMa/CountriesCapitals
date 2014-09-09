@@ -11,3 +11,7 @@ See if we can fix CSS to remove all jQuery in countries controller - NOPE
   equals its width, is to set the height through jQuery.
 Get entire capital data to be built before displayed - DONE
 Get isLoading spinner to run while all AJAX requests are in flight. - DONE
+Testing
+- add tests for the countries and capital controllers - DONE
+- add tests for $http geonames library - DONE
+- add tests for all routes - DONE
