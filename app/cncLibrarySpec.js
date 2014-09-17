@@ -29,7 +29,11 @@ describe("cncCountries", function() {
         ]
     };
 
+    var rootScope, httpBackend;
+
     it('should return a list of countries', inject(function(cncCountries, $rootScope, $httpBackend, GEONAMES_API_PREFIX) {
+        rootScope = $rootScope;
+        httpBackend = $httpBackend;
         var status = false,
             path=GEONAMES_API_PREFIX + "/countryInfoJSON?username=jettagozoom";
 
@@ -39,10 +43,14 @@ describe("cncCountries", function() {
                 expect(countries.length).toBe(3);
                 status = true;
             });
-            $rootScope.$digest();
-            $httpBackend.flush();
-            expect(status).toBe(true);
-            $httpBackend.verifyNoOutstandingRequest();
     }));
+
+    afterEach(inject(function($rootScope, $httpBackend) {}
+    {
+        rootScope.$digest();
+        httpBackend.flush();
+        expect(status).toBe(true);
+        httpBackend.verifyNoOutstandingRequest();
+    }
 });
 

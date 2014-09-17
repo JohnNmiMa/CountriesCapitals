@@ -4,6 +4,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM
         population =0,
         countryIndex = 0;
 
+    console.log("I'm here in CountriesCtrl")
     $scope.$emit('showDropdown', true);
 
     if (country == "ALL") {
@@ -57,11 +58,11 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM
             widthPct = ratio * 100,
             widthPctT = widthPct.toString() + "%",
             offsetPctT = ((100 - widthPct)/2).toString() + "%",
-            mq = window.matchMedia( "(min-width: 767px)" ); // Bootstrap's xs break
+            mq = window.matchMedia( "(min-width: 767px)" ), // Bootstrap's xs break
+            heightSize;
 
         if(mq.matches) {
             //console.log("Browser window is 767 pixels or more");
-            var heightSize = width * ratio;
             if (areaOrPopulation == "area") {
                 $(".infograph .areaContainer").height(width);
             } else {
@@ -70,7 +71,7 @@ viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM
             return {'width':widthPctT, 'height':widthPctT, 'border-radius':'50%', 'left':offsetPctT, 'top':offsetPctT};
         } else {
             //console.log("Browser window is 767 pixels or less");
-            var heightSize = width * ratio;
+            heightSize = width * ratio;
             if (areaOrPopulation == "area") {
                 $(".infograph .areaContainer").height(heightSize);
             } else {

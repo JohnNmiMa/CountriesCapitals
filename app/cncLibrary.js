@@ -24,13 +24,13 @@ angular.module('cncLibrary', [])
 
     // This is used to remove duplicate counties. There were a number of them.
     function removeDups(countries) {
-        var newname = "",
+        var newName,
             tmpArray = [],
-            arrayLen = 0;
+            arrayLen,
             foundDup = false;
 
-        for (country in countries) {
-            newname = countries[country].countryName;
+        for (var country in countries) {
+            newName = countries[country].countryName;
             arrayLen = tmpArray.length;
 
             if (arrayLen == 0) {
@@ -39,7 +39,7 @@ angular.module('cncLibrary', [])
                 foundDup = false;
                 for (var i = 0; i < arrayLen; i++) {
                     var name = tmpArray[i].countryName;
-                    if (name === newname) {
+                    if (name === newName) {
                         foundDup = true;
                         //console.log("Found a duplicate name: " + newname);
                         break;
@@ -59,7 +59,7 @@ angular.module('cncLibrary', [])
     return function(countryCode) {
         var defer = $q.defer();
         cncCountries().then(function(countries) {
-            for (index in countries) {
+            for (var index in countries) {
                 if (countryCode === countries[index].countryCode) {
                     defer.resolve(countries[index]);
                 }

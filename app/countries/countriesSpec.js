@@ -53,7 +53,6 @@ describe("cncAppViews", function() {
             expect(Math.round(scope.area)).toBe(94525);
             expect(scope.showCountryInfo).toBe(true);
             expect(scope.showCountryList).toBe(false);
-
         });
 
         // Don't mock this out - need to change 'country' for next test
