@@ -1,31 +1,53 @@
 body {
     padding-top: 57px;
-    overflow-x:hidden;
-    overflow-y:hidden;
+    /*-webkit-overflow-scrolling: touch;*/
 }
 
-.cncBrand.navbar-brand {
-    color: #21c300;
+.navbar {
+    min-width:320px;
 }
-    .cncBrand.navbar-brand:hover {
-        color: #ff9500;
-    }
-.header-right {
-    position:absolute;
-    right:0;
-    top:0;
-}
-    .header-right .glyphicon {
-        font-size:1.3em;
+    .cncBrand.navbar-brand {
         color: #21c300;
     }
-        .header-right .glyphicon:hover {
+        .cncBrand.navbar-brand:hover {
             color: #ff9500;
+        }
+        .dropdownToggle {
+            position:relative;
+            color: #21c300;
+            line-height:51px;
+            z-index:1200;
+        }
+            .dropdownToggle:hover {
+                color: #ff9500;
+                text-decoration:none;
+            }
+    .header-right {
+        position:absolute;
+        right:0;
+        top:0;
+    }
+        .header-right .glyphicon {
+            font-size:1.3em;
+            color: #21c300;
+        }
+            .header-right .glyphicon:hover {
+                color: #ff9500;
+            }
+    nav.navbar .fa.fa-spinner {
+        position:absolute;
+        left:50%;
+        line-height:51px;
+        font-size:2em;
+        color: #21c300;
+        opacity:0;
+    }
+        nav.navbar .fa.fa-spinner.fa-spin {
+            opacity:1;
         }
 
 .modal-content {
     padding:0 10px;
-    /*color: #21c300;*/
 }
     .modal-content ul {
         list-style-type:disc;
@@ -44,108 +66,25 @@ body {
             color: #21c300;
         }
 
-.sidebar {
-    position:absolute;
-    top:51px;
-    bottom:0;
-    left:0;
-    right:33.3333333333%;
-    padding:5px 0;
-    /*background-color:#eee;*/
-    overflow-x:hidden;
-    overflow-y: scroll;
+.fadeOut {
+    /* The base .fadeOutDownBig from animate.css must be disabled to enable
+     * ngAnimate and still use the base keyframes defined in animate.css. */
+    -webkit-animation-name: nullkeyframe;
+            animation-name: nullkeyframe;
 }
-    .sidebar li {
-        float:left;
-        list-style: none;
-        padding-left:5px;
-    }
-        .sidebar li a {
-            min-width:100px;
-            font-size:0.8em;
-        }
-            .sidebar li a.btn {
-                padding:1px 2px;
-            }
-            .sidebar li a.btn-default {
-                background-color: #21c300;
-                color:#fff;
-            }
-            .sidebar li a.btn-default:hover {
-                background-color: #ff9500;
-            }
-    .sidebar::-webkit-scrollbar {
-        background-color:#fff;
-        width:10px;
-    }
-    .sidebar::-webkit-scrollbar-thumb {
-        background-color: #ff9500;
-        -webkit-border-radius: 1ex;
-        -webkit-box-shadow:none;
-    }
-
-.homeContent {
+.fadeOut.ng-leave {
+    -webkit-animation: 0.4s fadeOut;
+            animation: 0.4s fadeOut;
 }
-    .homeContent h3 {
-        color: #21c300;
-    }
-    .homeContent p {
-        color: #ff9500;
-    }
-    .homeContent .btn-primary {
-        background-color: #21c300;
-        border:none;
-    }
 
-.countriesContent {
-    position:absolute;
-    top:51px;
-    bottom:0;
-    left:33.3333333333%;
-    right:0;
-    padding:5px 0;
-    padding-right:5px;
-    /*background-color:#eee;*/
-    overflow-x:hidden;
-    overflow-y: hidden;
-    color: #21c300;
+.fadeIn {
+    /* The base .fadeOutDownBig from animate.css must be disabled to enable
+     * ngAnimate and still use the base keyframes defined in animate.css. */
+    -webkit-animation-name: nullkeyframe;
+            animation-name: nullkeyframe;
 }
-    .countryInfo h3 {
-        color: #ff9500;
-    }
-    table {
-    }
-        td {
-            font-size:.90em;
-            padding:5px 3px;
-            min-width:150px;
-        }
-        td.textcol {
-            text-align:right;
-        }
+.fadeIn.ng-enter {
+    -webkit-animation: 0.4s fadeIn;
+            animation: 0.4s fadeIn;
+}
 
-    .infograph {
-        /*border:1px solid black;*/
-    }
-        .infograph .popCol  {
-            padding-right: 0;
-        }
-        .infograph .areaCol  {
-            padding-left: 0;
-        }
-        .infograph .populationContainer,
-        .infograph .areaContainer {
-            position:relative;
-        }
-            .infograph h4 {
-               text-align:center;
-            }
-            .infograph .population, .infograph .area {
-                position:absolute;
-            }
-            .infograph .population {
-                background-color: #21c300;
-            }
-            .infograph .area {
-                background-color: #ff9500;
-            }

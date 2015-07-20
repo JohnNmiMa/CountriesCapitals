@@ -1,47 +1,51 @@
 <div class="row">
-    <div class="sidebar col-xs-4">
+    <div class="sidebar col-xs-4 hidden-xs hidden-sm">
         <ul>
-            <li ng-repeat="name in countryNames" ng-mouseenter="displayCountry($index)">
-                <a href="javascript:void(0)" class="btn btn-default">{{name}}</a>
+            <li class="country" ng-repeat="name in countries" ng-mouseenter="displayCountry($index)">
+                <a ng-href="#!/countries/{{name.countryCode}}/capital" class="btn btn-default">{{name.countryName}}</a>
             </li>
         </ul>
     </div>
-    <div class="countriesContent col-xs-8">
-        <center class="countryInfo">
-            <h3>{{country}}</h3>
-            <table>
-                <!--<tr>-->
-                    <!--<td class="textcol">Population of Country:</td>-->
-                    <!--<td class="population">{{population | number:0}}</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td class="textcol">Area (square km):</td>-->
-                    <!--<td class="area">{{area | number:0}}</td>-->
-                <!--</tr>-->
+    <!--<div class="countriesContent col-xs-8 hidden-xs hidden-sm">-->
+    <!--<div class="countriesContent col-xs-12 hidden-md hidden-lg">-->
+    <div class="countriesContent">
+        <div class="countriesDropdown hidden-md hidden-lg">
+            <ul class="dropdownMenu" ng-show="showCountryList">
+                <li class="country" ng-repeat="name in countries" ng-click="displayCountry($index)">
+                    <a class="btn btn-default">{{name.countryName}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="countryInfo" ng-show="showCountryInfo">
+            <a ng-href="#!/countries/{{countryInfo.countryCode}}/capital"><h3 class="country">{{country}}</h3></a>
+            <table class="center">
                 <tr>
-                    <td class="textcol">Capital:</td>
-                    <td class="capital">{{capital}}</td>
+                    <td class="labelcol">Country Code:</td>
+                    <td class="valuecol capital">{{countrycode}}</td>
                 </tr>
-                <!--<tr>-->
-                    <!--<td class="textcol">Population of Capital:</td>-->
-                    <!--[><td class="capitalpopulation">{{capitalPopulation | number:0}}</td><]-->
-                    <!--<td class="capitalpopulation">{{capitalPopulation}}</td>-->
-                <!--</tr>-->
+                <tr>
+                    <td class="labelcol">Capital:</td>
+                    <td class="valuecol capital">{{capital}}</td>
+                </tr>
+                <tr>
+                    <td class="labelcol">Continent Code:</td>
+                    <td class="valuecol capital">{{continentcode}}</td>
+                </tr>
             </table>
-        </center>
-        <div class="infograph row">
-            <div class="popCol col-xs-6">
+        </div>
+        <div class="infograph row" ng-show="showCountryInfo">
+            <div class="popCol col-sm-6">
                 <h4>Population</h4>
                 <h4>{{population | number:0}}</h4>
                 <div class="populationContainer">
-                    <div class="population"></div>
+                    <div class="population" ng-style="computeLayout(population, maxPopulation, 'population')"></div>
                 </div>
             </div>
-            <div class="areaCol col-xs-6">
-                <h4>Area (Sq Km)</h4>
+            <div class="areaCol col-sm-6">
+                <h4>Area (Sq Mi)</h4>
                 <h4>{{area | number:0}}</h4>
                 <div class="areaContainer">
-                    <div class="area"></div>
+                    <div class="area" ng-style="computeLayout(area, maxArea, 'area')"></div>
                 </div>
             </div>
         </div>

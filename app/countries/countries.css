@@ -1,0 +1,131 @@
+.sidebar {
+    position:absolute;
+    top:51px;
+    bottom:0;
+    left:0;
+    padding:5px 0;
+    overflow-x:hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+    li.country {
+        float:left;
+        list-style: none;
+        padding-left:5px;
+    }
+        li.country a {
+            min-width:100px;
+            font-size:0.8em;
+        }
+            li.country a.btn {
+                padding:1px 2px;
+            }
+            li.country a.btn-default {
+                background-color: #21c300;
+                color:#fff;
+            }
+            li.country a.btn-default:hover {
+                background-color: #ff9500;
+            }
+    .sidebar::-webkit-scrollbar {
+        background-color:#fff;
+        width:10px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+        background-color: #ff9500;
+        -webkit-border-radius: 1ex;
+        -webkit-box-shadow:none;
+    }
+
+@media(max-width:992px) {
+    .countriesContent {
+        width:100%;
+        left:0;
+    }
+}
+@media(min-width:992px) {
+    .countriesContent {
+        width:66.66666666%;
+        left:33.3333333333%;
+    }
+}
+.countriesContent {
+    position:absolute;
+    top:51px;
+    bottom:0;
+    right:0;
+    padding:0;
+    overflow-x:hidden;
+    color: #21c300;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+    .countriesDropdown {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        padding:0 15px 15px 15px;
+        background-color:#fff;
+        z-index:10;
+        /*overflow-y:scroll;*/
+        /*-webkit-overflow-scrolling: touch;*/
+    }
+
+    .countryInfo {
+        text-align:center;
+    }
+        .countryInfo h3 {
+            color: #ff9500;
+        }
+        .countryInfo a {
+            text-decoration:none;
+        }
+        table.center {
+            margin-left:auto; 
+            margin-right:auto;
+        }
+            td {
+                font-size:.90em;
+                padding:2px 2px;
+                min-width:150px;
+            }
+            td.labelcol {
+                text-align:right;
+            }
+            td.valuecol {
+                text-align:left;
+            }
+
+    .infograph {
+        margin:0;
+    }
+        .infograph .popCol, .infograph .areaCol  {
+            margin-bottom:30px;
+        }
+        @media(min-width:767px) {
+            .infograph .popCol  {
+                padding-right: 0;
+            }
+        }
+        @media(min-width:767px) {
+            .infograph .areaCol  {
+                padding-left: 0;
+            }
+        }
+        .infograph h4 {
+           text-align:center;
+        }
+            .infograph .population, .infograph .area {
+                position:relative;
+                box-sizing: border-box;
+            }
+            .infograph .population {
+                box-shadow: 0 0 3px 3px rgba(33,195,0,0.9), 0 0 5px 5px rgba(33,195,0,0.6), inset 0 0 9px 9px rgba(33,195,0,0.3);
+                background-color: #21c300;
+            }
+            .infograph .area {
+                box-shadow: 0 0 3px 3px rgba(255,154,0,0.9), 0 0 5px 5px rgba(255,149,0,0.6), inset 0 0 9px 9px rgba(255,149,0,0.3);
+                background-color: #ff9500;
+            }
+

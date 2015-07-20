@@ -1,0 +1,17 @@
+Implement home view - DONE
+Implement countries view - DONE
+Implement capital view - DONE
+Add loading state animation during AJAX calls. - DONE
+Add smooth ng-view animations - DONE
+Enhance help screen - DONE
+Improve file layout - DONE
+See if we can fix CSS to remove all jQuery in countries controller - NOPE
+- tried, but still needed a square parent for the round divs.
+- the only way I know how to make a square div (whose height
+  equals its width, is to set the height through jQuery.
+Get entire capital data to be built before displayed - DONE
+Get isLoading spinner to run while all AJAX requests are in flight. - DONE
+Testing
+- add tests for the countries and capital controllers - DONE
+- add tests for $http geonames library - DONE
+- add tests for all routes - DONE

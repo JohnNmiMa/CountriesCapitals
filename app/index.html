@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang='en' ng-app="cncApp">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- build:css ./_assets/combined.css -->
     <link rel="stylesheet" type="text/css" href="./reset.css" />
+    <link rel="stylesheet" type="text/css" href="./bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="./bower_components/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./home/home.css" />
+    <link rel="stylesheet" type="text/css" href="./countries/countries.css" />
+    <link rel="stylesheet" type="text/css" href="./capital/capital.css" />
     <link rel="stylesheet" type="text/css" href="./main.css" />
     <!-- endbuild -->
     <meta charset='UTF-8' />
@@ -12,9 +18,11 @@
 
 <body ng-controller="CncCtrl">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <a class="cncBrand navbar-brand" href="#!">Countries & Capitals</a>
-        </div>
+        <span class="fa fa-spinner" ng-class="{'fa-spin':isLoading}"></span>
+        <a class="cncBrand navbar-brand" href="#!">Countries & Capitals</a>
+        <a href="javascript:void(0)" class="dropdownToggle hidden-md hidden-lg" ng-click="toggleCountries()" ng-show="showDropdown">
+            Countries<span class="caret"></span>
+        </a>
         <a class="header-right navbar-brand" href="javascript:void(0)" ng-click="displayInfo()">
             <span class="glyphicon glyphicon-info-sign"></span></a>
     </nav>
@@ -23,9 +31,17 @@
             <div class="modal-content">
                 <h3>Usage</h3>
                 <ul>
-                    <li><p>Click on "Browse Countries" to list all countries in the world</p></li>
-                    <li><p><em>Hover over a country</em> in the left panel to display the capital, land area and population</p></li>
-                <li><p><em>Click on a country</em> to display even more information (Flag, Country Code, Neighboring Countries, ...)</p></li>
+                    <li><p>Click on "Countries & Capitals" in the upper left to go to the home page.</p></li>
+                    <li><p>Click on the "Browse Countries" button to list all countries in the world.</p></li>
+                    <ul>
+                        <li><p><em>Hover over a country</em> in the left panel to display the capital,
+                                   land area and population. The population and area are displayed in an infograph.
+                                   The largest bubbles represents the country with the largest population or area.</p></li>
+                        <li><p><em>Click on a country</em> to display even more information
+                                   (Capital, Flag, Map, Country Code, Neighboring Countries, Timezone, Continent, ...)</p></li>
+                    </ul>
+                    <li><p>When viewing a country and its capital, click on one of the neighboring 
+                           countries link to view its neighbor.</p></li>
                 </ul>
                 <h3>Attributions</h3>
                 <ul>
@@ -35,18 +51,21 @@
         </div>
     </div>
 
-    <div ng-view></div>
+    <div ng-view class="fadeIn fadeOut"></div>
   
     <!-- build:js ./_assets/combined.js -->
     <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="./cncLibrary.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="./cncApp.js"></script>
     <script type="text/javascript" src="./cncAppViews.js"></script>
+    <script type="text/javascript" src="./cncRoutes.js"></script>
+    <script type="text/javascript" src="./cncLibrary.js"></script>
     <script type="text/javascript" src="./home/home.js"></script>
     <script type="text/javascript" src="./countries/countries.js"></script>
-    <script type="text/javascript" src="./cncApp.js"></script>
+    <script type="text/javascript" src="./capital/capital.js"></script>
     <!-- endbuild -->
 </body>
 </html>

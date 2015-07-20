@@ -1,0 +1,47 @@
+.countryContent {
+    position:absolute;
+    top:51px;
+    color: #21c300;
+    text-align:center;
+    margin:0 auto;
+    left:0;
+    right:0;
+    -webkit-overflow-scrolling: touch;
+}
+    .countryContent .countryInfo {
+        display:inline-block;
+        margin-bottom:20px;
+    }
+
+    .countryContent .countryInfo h3 {
+        text-align:left;
+        color: #ff9500;
+    }
+    .countryContent .countryInfo td {
+        /*min-width:0;*/
+    }
+    .countryContent .countryInfo td.neighbors {
+        width:200px;
+    }
+
+    .countryContent .mapnflag {
+        margin-bottom:20px;
+    }
+    .countryContent .map img {
+        max-width:50%;
+        max-height:250px;
+        margin-bottom:20px;
+    }
+    .countryContent .flag img {
+        width:50%;
+        border:1px solid black;
+    }
+    @media(min-width:767px) {
+        .countryContent .map img {
+            float:right;
+            margin-bottom:0;
+        }
+        .countryContent .flag img {
+            float:left;
+        }
+    }

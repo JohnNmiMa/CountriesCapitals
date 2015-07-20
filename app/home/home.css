@@ -1,0 +1,17 @@
+.homeContent {
+}
+    .homeContent h3 {
+        color: #21c300;
+    }
+    .homeContent p {
+        color: #ff9500;
+    }
+    .btn-primary {
+        margin-bottom:20px;
+        background-color: #21c300;
+        border:none;
+    }
+        .btn-primary:hover {
+            background-color: #ff9500;
+            border:none;
+        }

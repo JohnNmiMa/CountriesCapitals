@@ -1,99 +1,96 @@
-viewsModule.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when("/countries", {
-        templateUrl : "./countries/countries.html",
-        controller : 'CountriesCtrl',
-        resolve : {
-            countries : ['cncCountries', function(cncCountries) {
-                return cncCountries();
-            }]
-        }
-    });
-}]);
+viewsModule.controller('CountriesCtrl', ['$scope', 'countries', 'country', 'SQKM_TO_SQMI',
+                                 function($scope,   countries,   country,   SQKM_TO_SQMI) {
+    var area =0,
+        population =0,
+        countryIndex = 0;
 
-viewsModule.controller('CountriesCtrl', ['$scope', 'countries',
-                                 function($scope,   countries) {
-    var maxPopulation = pop = 0,
-        maxArea = area = 0;
-    $scope.countryNames = [];
+    console.log("I'm here in CountriesCtrl")
+    $scope.$emit('showDropdown', true);
 
-    for (country in countries) {
-        population = Number(countries[country].population);
-        area = Number(countries[country].areaInSqKm);
-
-        if (maxPopulation < population) {
-            maxPopulation =  population;
-        }
-        if (maxArea < area) {
-            maxArea = area;
-        }
-
-        $scope.countryNames.push(countries[country].countryName);
+    if (country == "ALL") {
+        $scope.showCountryList = true;
+        $scope.showCountryInfo = false;
+    } else {
+        $scope.showCountryList = false;
+        $scope.showCountryInfo = true;
     }
+    $scope.countries = countries;
+    $scope.countrycode = country;
+    $scope.maxPopulation = 0;
+    $scope.maxArea = 0;
+    $scope.countryInfo = {};
+
+    for (var index in countries) {
+        population = Number(countries[index].population);
+        area = Number(countries[index].areaInSqKm);
+
+        if ($scope.maxPopulation < population) {
+            $scope.maxPopulation =  population;
+        }
+        if ($scope.maxArea < area) {
+            $scope.maxArea = area;
+        }
+        if (countries[index].countryCode == country) {
+            countryIndex = index;
+        }
+    }
+    $scope.maxArea = $scope.maxArea * SQKM_TO_SQMI; // Convert to Sq Mi
 
     $scope.displayCountry = function(index) {
-        //console.log("Display " + $scope.countryNames[index]);
         setCountry(index);
+        $scope.showCountryInfo = true;
+        $scope.showCountryList = false;
     }
 
     function setCountry(index) {
-        var popWidth = Number($(".infograph .populationContainer").width()),
-            areaWidth = Number($(".infograph .areaContainer").width()),
-            popRadius = areaRadius = 0,
-            radiusText = "",
-            populationRatio = areaRatio = 1.0;
-
-        // Update data bindings
         $scope.country = countries[index].countryName;
         $scope.population = Number(countries[index].population);
-        $scope.area = Number(countries[index].areaInSqKm);
+        $scope.area = Number(countries[index].areaInSqKm) * SQKM_TO_SQMI;
         $scope.capital = countries[index].capital;
-        $scope.capitalPopulation = "???";
-
-        // Compute population infographic size
-        computePopulationLayout($scope.population, popWidth);
-        computeAreaLayout($scope.area, popWidth);
-
+        $scope.countrycode = countries[index].countryCode;
+        $scope.continentcode = countries[index].continent;
+        $scope.countryInfo = countries[index];
     }
 
-    function computePopulationLayout(countryPopulation, popContainerWidth) {
-        var populationRatio = countryPopulation / maxPopulation,
-            popWidth = popContainerWidth * populationRatio,
-            radiusText = "",
-            horzOffset = 0;
+    $scope.computeLayout = function(size, maxSize, areaOrPopulation) {
+        var width = Number($(".infograph .populationContainer").width()),
+            ratio = ((size/maxSize) < 0.02) ? 0.02 : size/maxSize,
+            widthPct = ratio * 100,
+            widthPctT = widthPct.toString() + "%",
+            offsetPctT = ((100 - widthPct)/2).toString() + "%",
+            mq = window.matchMedia( "(min-width: 767px)" ), // Bootstrap's xs break
+            heightSize;
 
-        if (popWidth < 2.0) {
-            popWidth = 2;
+        if(mq.matches) {
+            //console.log("Browser window is 767 pixels or more");
+            if (areaOrPopulation == "area") {
+                $(".infograph .areaContainer").height(width);
+            } else {
+                $(".infograph .populationContainer").height(width);
+            }
+            return {'width':widthPctT, 'height':widthPctT, 'border-radius':'50%', 'left':offsetPctT, 'top':offsetPctT};
+        } else {
+            //console.log("Browser window is 767 pixels or less");
+            heightSize = width * ratio;
+            if (areaOrPopulation == "area") {
+                $(".infograph .areaContainer").height(heightSize);
+            } else {
+                $(".infograph .populationContainer").height(heightSize);
+            }
+            return {'width':widthPctT, 'height':'100%', 'border-radius':'50%', 'left':offsetPctT, 'top':0};
         }
-        radiusText = (popWidth/2).toString() + "px";
-        $(".infograph .populationContainer").height(popWidth);
-        $(".infograph .population").width(popWidth);
-        $(".infograph .population").height(popWidth);
-        $(".infograph .population").css('border-radius',radiusText);
-
-        horzOffset = (popContainerWidth - popWidth) / 2;
-        $(".infograph .population").css('left',horzOffset);
-        $(".infograph .population").css('top',horzOffset);
     }
 
-    function computeAreaLayout(countryArea, areaContainerWidth) {
-        var areaRatio = countryArea / maxArea,
-            areaWidth = areaContainerWidth * areaRatio,
-            radiusText = "",
-            horzOffset = 0;
-
-        if (areaWidth < 2.0) {
-            areaWidth = 2;
+    $scope.$on('toggleCountries', function(event) {
+        $scope.showCountryList = !$scope.showCountryList;
+        if ($scope.showCountryList == true) {
+            $scope.showCountryInfo = false;
         }
-        radiusText = (areaWidth/2).toString() + "px";
-        $(".infograph .areaContainer").height(areaWidth);
-        $(".infograph .area").width(areaWidth);
-        $(".infograph .area").height(areaWidth);
-        $(".infograph .area").css('border-radius',radiusText);
+    });
 
-        horzOffset = (areaContainerWidth - areaWidth) / 2;
-        $(".infograph .area").css('left',horzOffset);
-        $(".infograph .area").css('top',horzOffset);
+    if (country === "ALL") {
+        $scope.showCountryInfo = false;
+    } else {
+        setCountry(countryIndex);
     }
-
-    setCountry(0);
 }]);

@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="countryContent col-xs-12">
+        <div class="countryInfo">
+            <h3 class="country">{{country}}</h3>
+            <div>
+                <table class="center">
+                    <tr>
+                        <td class="labelcol">Country Code:</td>
+                        <td class="valuecol countryCode">{{countrycode}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Population of Country:</td>
+                        <td class="valuecol population">{{population | number:0}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Area (Sq Mi):</td>
+                        <td class="valuecol area">{{area | number:0}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Capital:</td>
+                        <td class="valuecol capital">{{capital}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Population of Capital:</td>
+                        <td class="valuecol capitalPop">{{capitalPopulation | number:0}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Time (GMT Offset = {{timezone}}):</td>
+                        <td class="valuecol time">{{time | date:'h:mm a'}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">Continent:</td>
+                        <td class="valuecol continent">{{continent}}</td>
+                    </tr>
+                    <tr>
+                        <td class="labelcol">{{numNeighbors}} Neighbors:</td>
+                        <td class="valuecol neighbors">
+                            <a ng-repeat="neighbor in neighbors" ng-href="#!/countries/{{neighbor.countryCode}}/capital">
+                                {{neighbor.countryName}}
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="mapnflag row">
+            <div class="map col-sm-6">
+                <img ng-src="http://www.geonames.org/img/country/400/{{countrycode}}.png">
+                <!--<img ng-src="http://www.geonames.org/img/country/250/{{countrycode}}.png">-->
+            </div>
+            <div class="flag col-sm-6">
+                <img ng-src="http://www.geonames.org/flags/x/{{countrycode|lowercase}}.gif">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="#!/countries">
+                    <button type="button" class="browse btn btn-primary">Browse Countries</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
